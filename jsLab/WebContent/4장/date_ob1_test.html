@@ -2,27 +2,27 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="ko" xml:lang="ko">
 <head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
-<title> 날짜 정보 객체 </title>
+<title>날짜 정보 객체</title>
 <script type="text/javascript">
-//<![CDATA[
+	//<![CDATA[
+	var t = new Date();
+	var nowMonth = t.getMonth();	// 현재 월을 1 적게 반환.
+	var nowDate = t.getDate();	// 현재 일자 반환
+	var nowDay = t.getDay();	// 현재 요일 반환. 화요일=2
+	
+	var m = new Date("2020/05/31");
+	var theMonth = m.getMonth();
+	var theDate = m.getDate();
+	var theDay = m.getDay();
 
+	document.write("현재 월:" + nowMonth, "<br />");
+	document.write("현재 일:" + nowDate, "<br />");
+	document.write("현재 요일:" + nowDay, "<br />");
 
-
-
-   document.write("현재 월:"+nowMonth,"<br />");
-   document.write("현재 일:"+nowDate,"<br />");
-   document.write("현재 요일:"+nowDay,"<br />");
-  
-  
-  
-  
-
-
-
-  document.write("2002월드컵 몇 월:"+theMonth,"<br />");
-   document.write("2002월드컵 몇 일:"+theDate,"<br />");
-   document.write("2002월드컵 무슨 요일:"+theDay,"<br />");
-//]]>
+	document.write("2002월드컵 몇 월:" + theMonth, "<br />");
+	document.write("2002월드컵 몇 일:" + theDate, "<br />");
+	document.write("2002월드컵 무슨 요일:" + theDay, "<br />");
+	//]]>
 </script>
 </head>
 <body>
