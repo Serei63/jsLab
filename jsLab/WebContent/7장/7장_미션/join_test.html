@@ -31,10 +31,109 @@
 				return false;
 			}
 			
+			// 작성 위치
 			
+			// 비밀번호
+			if ($("#pwd").val() == "") {
+				alert("비밀번호를 꼭 입력하세요!");
+				$("#pwd").focus();
+				return false;
+			}
 			
+			if ($("#pwd").val() != $("#pwd2").val() || $("#pwd2").val() == "") {
+				alert("비밀번호 확인이 일치하지 않습니다!");
+				$("#pwd2").focus();
+				return false;
+			}
 			
+			// 이름
+			if ($("#name").val() == "") {
+				alert("이름을 입력하세요!");
+				$("#name").focus();
+				return false;
+			}
 			
+			// 전화번호
+			if ( !(tel1_pattern.test($('#tel1').val())) ) {
+				alert("올바른 전화번호를 입력하세요!");
+				$("#tel1").focus();
+				return false;
+			}
+			
+			if ($("#tel1").val() == "") {
+				alert("전화번호를 입력하세요!");
+				$("#tel1").focus();
+				return false;
+			}
+			
+			// 전화번호 나머지 자리 정규식
+			var tel2_pattern = /^([0-9]{4})$/;
+			var tel3_pattern = /^([0-9]{4})$/;
+			
+			if ( !(tel2_pattern.test($('#tel2').val())) ) {
+				alert("올바른 전화번호를 입력하세요!");
+				$("#tel2").focus();
+				return false;
+			}
+			
+			if ($("#tel2").val() == "") {
+				alert("전화번호를 입력하세요!");
+				$("#tel2").focus();
+				return false;
+			}
+			
+			if ( !(tel3_pattern.test($('#tel3').val())) ) {
+				alert("올바른 전화번호를 입력하세요!");
+				$("#tel3").focus();
+				return false;
+			}
+			
+			if ($("#tel3").val() == "") {
+				alert("전화번호를 입력하세요!");
+				$("#tel3").focus();
+				return false;
+			}
+			
+			// 주소
+			if ($("#addr").val() == "") {
+				alert("주소를 입력하세요!");
+				$("#addr").focus();
+				return false;
+			}
+			
+			// 직업
+			if ( $("#job option:selected").val() == "") {
+				alert("직업을 선택해주세요!");
+				return false;
+			}
+			
+			// 성별
+			if ( !($("input:radio[name='gender']").is(":checked")) ) {
+				alert("성별을 선택해주세요!");
+				return false;
+			}
+			
+			// 이메일 정규식
+			var email_pattern = /^[A-Za-z0-9_\.\-]+@[A-Za-z0-9\-]+\.[A-Za-z0-9\-]+/;
+			
+			if ( !(email_pattern.test($('#email').val())) ) {
+				alert("올바른 이메일을 입력하세요!");
+				$("#email").focus();
+				return false;
+			}
+			
+ 			if ($("#email").val() == "") {
+				alert("이메일을 입력하세요!");
+				$("#email").focus();
+				return false;
+			}
+ 			
+ 			// 자기소개
+			if ($("#intro").val() == "") {
+				alert("자기소개를 입력하세요!");
+				$("#intro").focus();
+				return false;
+			}
 			
 
 		}); // submit() end
