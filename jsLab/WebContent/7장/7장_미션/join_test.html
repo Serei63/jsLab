@@ -42,6 +42,7 @@
 			
 			if ($("#pwd").val() != $("#pwd2").val() || $("#pwd2").val() == "") {
 				alert("비밀번호 확인이 일치하지 않습니다!");
+				$("pwd2").val("");
 				$("#pwd2").focus();
 				return false;
 			}
@@ -55,7 +56,8 @@
 			
 			// 전화번호
 			if ( !(tel1_pattern.test($('#tel1').val())) ) {
-				alert("올바른 전화번호를 입력하세요!");
+				alert("010, 011, 016, 017, 018, 019만 가능합니다!");
+				$("#tel1").val("");
 				$("#tel1").focus();
 				return false;
 			}
