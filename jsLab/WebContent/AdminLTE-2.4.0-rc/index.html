@@ -8,6 +8,18 @@
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <!-- Bootstrap 3.3.7 -->
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+  
+  <link rel="stylesheet" type="text/css" href="css/base.css" media="all" />
+<link rel="stylesheet" type="text/css" href="css/main.css" media="all" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<!-- 제이쿼리 라이이브러리 연동 -->
+
+<link rel="stylesheet" type="text/css" href="js/style.css" />
+<!-- 터치 슬라이드 스타일(CSS) 연동 -->
+<script type="text/javascript" src="js/swipe.js"></script>
+<!-- 터치 슬라이드 플러그인 연동 -->
+<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
+  
   <!-- Font Awesome -->
   <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.min.css">
   <!-- Ionicons -->
@@ -34,9 +46,52 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
+  
+  <!-- 구글 세계 언어 선택 -->
+  <script type="text/javascript">
+function googleTranslateElementInit() {
+new google.translate.TranslateElement({pageLanguage: 'ko', includedLanguages: 'en,ja,ko,zh-CN', layout:
+google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script src='js/swipe.js'></script>
+<script type="text/javascript">
+	$(function() {
+		   window.mySwipe = $('#mySwipe').Swipe({
+				startSlide : 0, //초기에 첫 번째 배너가 노출됩니다.
+				auto : 3000, //3초 이후 자동으로 배너가 이동됩니다.
+				continuous : true, //배너가 반복되어 롤링됩니다.
+				callback : function(index, element) {
+					// 클래스 "active"를 포함하는 불릿 버튼을 비활성화 버튼으로 만들고
+					// "active" 클래스를 삭제한다.
+					$(".touch_bullet .active").attr("src",
+					$(".touch_bullet .active").attr("src").replace("on.png","off.png"))
+					.removeClass("active");
+					
+					$(".touch_bullet img").eq(index).attr("src",
+					$(".touch_bullet img").eq(index).attr("src").replace("off.png","on.png"))
+					.addClass("active");
+					
+				}
+			}).data('Swipe');
+
+			$(".touch_left_btn a").on("click", function() {//이전 버튼을 클릭했을 때...
+				mySwipe.prev(); //이전 배너로 이동합니다.
+				return false;
+			});
+
+			$(".touch_right_btn a").on("click", function() {//다음 버튼을 클릭했을 때...
+				mySwipe.next(); //다음 배너로 이동합니다.
+				return false;
+			});
+	});
+</script>
 
   <!-- Google Font -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
@@ -525,7 +580,39 @@
     </section>
 
     <!-- Main content -->
+    <div><h1><br><br></h1></div>
+    <div id="visual">
+			<div id="mySwipe" class='swipe'>
+				<ul class="touch_banner swipe-wrap">
+					<!-- 배너 목록 -->
+					<li><a href="#"><img src="images/visual_img_1.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="images/visual_img_2.jpg" alt="" /></a></li>
+					<li><a href="#"><img src="images/visual_img_3.jpg" alt="" /></a></li>
+				</ul>
+			</div>
+			<ul class="touch_bullet">
+				<!-- 배너 위치 표시 -->
+				<li><img src="images/visual_bullet_on.png" class="active"
+					alt="" /></li>
+				<li><img src="images/visual_bullet_off.png" alt="" /></li>
+				<li><img src="images/visual_bullet_off.png" alt="" /></li>
+			</ul>
+			<p class="touch_left_btn">
+				<!-- 이전 버튼 -->
+				<a href="#"> <img src="images/visual_btn_left.png" alt="이전 배너" />
+				</a>
+			</p>
+			<p class="touch_right_btn">
+				<!-- 다음 버튼 -->
+				<a href="#"> <img src="images/visual_btn_right.png" alt="다음 배너" />
+				</a>
+			</p>
+		</div>
+		<div><h1><br><br><br></h1></div>
     <section class="content">
+    
+    		
+    
       <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-3 col-xs-6">
@@ -1235,7 +1322,7 @@
 <!-- ./wrapper -->
 
 <!-- jQuery 3 -->
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<!-- <script src="bower_components/jquery/dist/jquery.min.js"></script> -->
 <!-- jQuery UI 1.11.4 -->
 <script src="bower_components/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
